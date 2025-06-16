@@ -10,10 +10,18 @@ function newGame() {
     game.playerMoves = [];
     game.score = 0;
     showScore();
+    addTurn();
 }
 
 function showScore() {
     document.getElementById("score").innerText = game.score;
 }
 
-module.exports = { game, newGame, showScore };// This module exports a game object that contains the current game state and score.
+function addTurn() {
+    game.playerMoves = [];
+    game.currentGame.push(game.choices[(Math.floor(Math.random() * 4))]);
+    // showTurns();
+}
+
+
+module.exports = { game, newGame, showScore, addTurn };// This module exports a game object that contains the current game state and score.
